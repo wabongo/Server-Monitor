@@ -48,3 +48,39 @@ Traceback (most recent call last):
           ^^
 NameError: name 'go' is not defined
 
+[2024-11-11 12:50:15] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
+[2024-11-11 12:51:09] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
+[2024-11-11 12:51:48] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
+[2024-11-11 12:51:57] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
+[2024-11-11 12:52:05] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
+[2024-11-11 12:52:23] Metrics Update: No data available
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 427, in update_metrics
+    raise ValueError("No data available")
+ValueError: No data available
+
