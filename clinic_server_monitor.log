@@ -1469,3 +1469,643 @@ ValueError: Unable to get authority configuration for https://login.microsoftonl
 2024-11-11 15:54:27,983 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB02DD0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
 2024-11-11 15:54:30,652 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FAD5450> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
 2024-11-11 15:54:34,034 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:54:52,492 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 027570dc-54cb-4464-930b-ca4ed2476000 Correlation ID: 6ec2851e-3e42-428a-8ade-17e96869e6d4 Timestamp: 2024-11-11 12:54:52Z","error_codes":[90002],"timestamp":"2024-11-11 12:54:52Z","trace_id":"027570dc-54cb-4464-930b-ca4ed2476000","correlation_id":"6ec2851e-3e42-428a-8ade-17e96869e6d4","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:54:52,772 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB015D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:54:54,623 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB01950> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:54:57,276 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FAD7050> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:55:00,666 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:55:14,418 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 9b46610e-b09c-410f-9a9b-4d93e14b2c00 Correlation ID: bbb79c37-4739-4986-94e9-6aa787c6eee4 Timestamp: 2024-11-11 12:55:14Z","error_codes":[90002],"timestamp":"2024-11-11 12:55:14Z","trace_id":"9b46610e-b09c-410f-9a9b-4d93e14b2c00","correlation_id":"bbb79c37-4739-4986-94e9-6aa787c6eee4","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:55:14,692 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F813850> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:55:16,539 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F813A50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:55:19,121 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FAD79D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:55:22,509 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:55:36,460 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: b3ce2aa9-48d4-490b-91fe-5cc7ff01ce00 Correlation ID: 02f478fc-c8f2-4ffb-9851-bc03de7dae7d Timestamp: 2024-11-11 12:55:36Z","error_codes":[90002],"timestamp":"2024-11-11 12:55:36Z","trace_id":"b3ce2aa9-48d4-490b-91fe-5cc7ff01ce00","correlation_id":"02f478fc-c8f2-4ffb-9851-bc03de7dae7d","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:55:36,733 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB034D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:55:38,601 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB00650> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:55:41,189 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F825250> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:55:44,568 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:55:58,202 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: d313e2e0-e267-4c55-9aa8-14e3f4b63c00 Correlation ID: 8205ad37-f5ef-4d6e-a81e-26ac7a82fb50 Timestamp: 2024-11-11 12:55:58Z","error_codes":[90002],"timestamp":"2024-11-11 12:55:58Z","trace_id":"d313e2e0-e267-4c55-9aa8-14e3f4b63c00","correlation_id":"8205ad37-f5ef-4d6e-a81e-26ac7a82fb50","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:55:58,515 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F7623D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:56:00,360 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB03C50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:56:02,991 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FAD50D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:56:06,369 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:56:19,786 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: f20e1401-f7c2-46a5-b94c-5d534a84a600 Correlation ID: 155a9803-9ce8-4587-897d-2f232938ead6 Timestamp: 2024-11-11 12:56:19Z","error_codes":[90002],"timestamp":"2024-11-11 12:56:19Z","trace_id":"f20e1401-f7c2-46a5-b94c-5d534a84a600","correlation_id":"155a9803-9ce8-4587-897d-2f232938ead6","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:56:20,068 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F826CD0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:56:21,939 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F7CFB50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:56:24,591 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FAD51D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:56:27,981 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:56:41,922 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 220dba50-b5f5-44d1-9b08-22a40cac2500 Correlation ID: e7836187-2a3d-40a9-9f6d-1f6c15719cee Timestamp: 2024-11-11 12:56:41Z","error_codes":[90002],"timestamp":"2024-11-11 12:56:41Z","trace_id":"220dba50-b5f5-44d1-9b08-22a40cac2500","correlation_id":"e7836187-2a3d-40a9-9f6d-1f6c15719cee","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:56:42,194 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB02050> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:56:44,037 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB00550> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:56:46,687 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F8267D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:56:50,072 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:57:03,633 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 6eed1d96-4286-4d1a-925e-aed4319df700 Correlation ID: ae05b105-d8f7-49a5-b9b2-91fe7792d808 Timestamp: 2024-11-11 12:57:03Z","error_codes":[90002],"timestamp":"2024-11-11 12:57:03Z","trace_id":"6eed1d96-4286-4d1a-925e-aed4319df700","correlation_id":"ae05b105-d8f7-49a5-b9b2-91fe7792d808","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:57:04,053 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F812A50> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:57:05,994 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F8104D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:57:08,605 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F826250> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:57:11,983 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:57:26,164 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 756d0b3e-931d-44c2-9e40-f623272d4f00 Correlation ID: 94985457-1443-46fe-817a-fd4d644da4d3 Timestamp: 2024-11-11 12:57:26Z","error_codes":[90002],"timestamp":"2024-11-11 12:57:26Z","trace_id":"756d0b3e-931d-44c2-9e40-f623272d4f00","correlation_id":"94985457-1443-46fe-817a-fd4d644da4d3","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:57:26,470 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F824650> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:57:28,414 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5F7CDA50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:57:31,079 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x000001DF5FB03150> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:57:34,237 INFO:Received signal to terminate. Shutting down gracefully...
+2024-11-11 15:57:34,252 ERROR:An error occurred while running the main loop
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 394, in <module>
+    asyncio.run(main_loop())
+  File "C:\Users\sophia.njoroge\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\AppData\Local\Programs\Python\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 685, in run_until_complete
+    raise RuntimeError('Event loop stopped before Future completed.')
+RuntimeError: Event loop stopped before Future completed.
+2024-11-11 15:57:34,269 INFO:Clinic server monitor shut down
+2024-11-11 15:57:39,481 WARNING:Running in DEBUG MODE. Sensitive information may be logged.
+2024-11-11 15:57:46,236 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 1d87791a-0ac7-43ed-9767-280be91bc400 Correlation ID: c2faa2e7-3c9e-47f0-be8e-d819306c1cdd Timestamp: 2024-11-11 12:57:46Z","error_codes":[90002],"timestamp":"2024-11-11 12:57:46Z","trace_id":"1d87791a-0ac7-43ed-9767-280be91bc400","correlation_id":"c2faa2e7-3c9e-47f0-be8e-d819306c1cdd","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:57:46,560 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649834D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:57:48,483 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649835D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:57:51,113 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764983D50> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:57:54,503 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:58:07,880 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: d4e84ec1-c56b-4753-8c28-dc94c5175700 Correlation ID: b1f40f81-e2a9-452c-9b5f-093fbf817a12 Timestamp: 2024-11-11 12:58:07Z","error_codes":[90002],"timestamp":"2024-11-11 12:58:07Z","trace_id":"d4e84ec1-c56b-4753-8c28-dc94c5175700","correlation_id":"b1f40f81-e2a9-452c-9b5f-093fbf817a12","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:58:08,154 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C34B50> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:58:10,053 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C34C50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:58:12,656 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C34F50> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:58:16,037 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:58:30,058 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 1993830b-6cc7-4342-9c1a-81681d62ab00 Correlation ID: f6c36920-36d5-4484-854a-711e09ca3657 Timestamp: 2024-11-11 12:58:29Z","error_codes":[90002],"timestamp":"2024-11-11 12:58:29Z","trace_id":"1993830b-6cc7-4342-9c1a-81681d62ab00","correlation_id":"f6c36920-36d5-4484-854a-711e09ca3657","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:58:30,377 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C361D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:58:32,314 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C362D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:58:34,978 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C368D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:58:38,369 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:58:52,177 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 17ac7209-a343-4a89-8770-1a86cf06d800 Correlation ID: 5f67868a-8bf8-4355-850d-0df32a20820c Timestamp: 2024-11-11 12:58:52Z","error_codes":[90002],"timestamp":"2024-11-11 12:58:52Z","trace_id":"17ac7209-a343-4a89-8770-1a86cf06d800","correlation_id":"5f67868a-8bf8-4355-850d-0df32a20820c","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:58:52,591 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649817D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:58:54,635 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764983E50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:58:57,397 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C34ED0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:59:00,775 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:59:14,707 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 5af73428-46ce-480c-941f-c6f248fe0501 Correlation ID: ec392e5f-ec59-4a39-a3d5-40704cf9dba9 Timestamp: 2024-11-11 12:59:14Z","error_codes":[90002],"timestamp":"2024-11-11 12:59:14Z","trace_id":"5af73428-46ce-480c-941f-c6f248fe0501","correlation_id":"ec392e5f-ec59-4a39-a3d5-40704cf9dba9","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:59:15,037 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C36150> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:59:16,912 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764B6B750> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:59:19,511 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764982950> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:59:22,896 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:59:37,438 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: dfc4aff6-808d-4624-8ba2-e8b2f18f7202 Correlation ID: 7a02a1ee-2c28-4cfb-a292-4421d6bf7fc0 Timestamp: 2024-11-11 12:59:37Z","error_codes":[90002],"timestamp":"2024-11-11 12:59:37Z","trace_id":"dfc4aff6-808d-4624-8ba2-e8b2f18f7202","correlation_id":"7a02a1ee-2c28-4cfb-a292-4421d6bf7fc0","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:59:37,709 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C37550> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 15:59:39,813 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C361D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 15:59:42,450 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C58C50> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 15:59:45,836 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 15:59:59,561 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: bae09ec4-6a4e-43dd-9fae-9d770e283500 Correlation ID: 6c3f69da-6619-4242-b746-486ed2aa8192 Timestamp: 2024-11-11 12:59:59Z","error_codes":[90002],"timestamp":"2024-11-11 12:59:59Z","trace_id":"bae09ec4-6a4e-43dd-9fae-9d770e283500","correlation_id":"6c3f69da-6619-4242-b746-486ed2aa8192","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 15:59:59,838 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187648DE3D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:00:01,696 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649813D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:00:04,481 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C379D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:00:07,866 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:00:21,475 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: c5c5089e-c283-45fe-929c-646c9e1a0900 Correlation ID: e828a039-4d97-4a87-9204-c42d246da8f7 Timestamp: 2024-11-11 13:00:21Z","error_codes":[90002],"timestamp":"2024-11-11 13:00:21Z","trace_id":"c5c5089e-c283-45fe-929c-646c9e1a0900","correlation_id":"e828a039-4d97-4a87-9204-c42d246da8f7","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:00:21,758 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C35ED0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:00:23,723 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764982650> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:00:26,343 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649822D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:00:29,732 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:00:43,673 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 86060efd-8e13-4716-8384-cffe77ed9b00 Correlation ID: 0557b858-583a-4ab7-b1c6-3cb4914c3315 Timestamp: 2024-11-11 13:00:43Z","error_codes":[90002],"timestamp":"2024-11-11 13:00:43Z","trace_id":"86060efd-8e13-4716-8384-cffe77ed9b00","correlation_id":"0557b858-583a-4ab7-b1c6-3cb4914c3315","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:00:44,002 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C372D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:00:46,504 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C36BD0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:00:49,168 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C583D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:00:52,545 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:01:06,130 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 4a59eb88-b005-42a7-84b1-18db2ebe1b02 Correlation ID: d925c6d6-dec6-4e34-b3c1-852a630a6bb5 Timestamp: 2024-11-11 13:01:06Z","error_codes":[90002],"timestamp":"2024-11-11 13:01:06Z","trace_id":"4a59eb88-b005-42a7-84b1-18db2ebe1b02","correlation_id":"d925c6d6-dec6-4e34-b3c1-852a630a6bb5","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:01:06,405 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C372D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:01:08,273 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C37650> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:01:11,067 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764981E50> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:01:14,450 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:01:28,495 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 4c9240b5-cacb-4d11-b29e-bcaa89566500 Correlation ID: 28f9858e-42c2-408c-89da-c3de3927243d Timestamp: 2024-11-11 13:01:28Z","error_codes":[90002],"timestamp":"2024-11-11 13:01:28Z","trace_id":"4c9240b5-cacb-4d11-b29e-bcaa89566500","correlation_id":"28f9858e-42c2-408c-89da-c3de3927243d","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:01:28,754 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C582D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:01:30,683 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764934D50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:01:33,327 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x00000187649822D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:01:36,710 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:01:50,570 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 212d8e80-fbdd-42e6-901b-073ca5a36200 Correlation ID: 5de954ca-6eed-42dd-9c0c-2c28bfaa53d3 Timestamp: 2024-11-11 13:01:50Z","error_codes":[90002],"timestamp":"2024-11-11 13:01:50Z","trace_id":"212d8e80-fbdd-42e6-901b-073ca5a36200","correlation_id":"5de954ca-6eed-42dd-9c0c-2c28bfaa53d3","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:01:50,849 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C37ED0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:01:52,752 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C369D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:01:55,412 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C59350> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:01:58,799 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:02:12,486 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: ecd64db3-847e-47ac-9ecf-637132fe6801 Correlation ID: 65c7d56e-83af-48fc-a25b-730b353b7ce9 Timestamp: 2024-11-11 13:02:12Z","error_codes":[90002],"timestamp":"2024-11-11 13:02:12Z","trace_id":"ecd64db3-847e-47ac-9ecf-637132fe6801","correlation_id":"65c7d56e-83af-48fc-a25b-730b353b7ce9","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:02:12,763 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764935ED0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:02:14,728 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764983E50> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:02:17,391 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C377D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:02:20,769 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:02:34,543 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 35148810-2ff7-4575-bbd1-e11802520200 Correlation ID: 4ecef933-e3ea-4dec-9bf0-f0f2a1697ebe Timestamp: 2024-11-11 13:02:34Z","error_codes":[90002],"timestamp":"2024-11-11 13:02:34Z","trace_id":"35148810-2ff7-4575-bbd1-e11802520200","correlation_id":"4ecef933-e3ea-4dec-9bf0-f0f2a1697ebe","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:02:34,818 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C594D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:02:36,849 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764B680D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:02:39,482 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C377D0> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:02:42,869 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:02:57,080 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 798fa966-97a6-4bb7-8829-2a1dab3b7400 Correlation ID: 8074416d-418e-477f-a09c-9e70ec6fdaf7 Timestamp: 2024-11-11 13:02:56Z","error_codes":[90002],"timestamp":"2024-11-11 13:02:56Z","trace_id":"798fa966-97a6-4bb7-8829-2a1dab3b7400","correlation_id":"8074416d-418e-477f-a09c-9e70ec6fdaf7","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:02:57,358 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C59650> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:02:59,271 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C590D0> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:03:01,945 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C59550> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:03:05,328 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:03:19,244 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: b2baf33d-c594-42ba-9571-1543c1f44a01 Correlation ID: f3c61848-0d0e-4ba3-9628-367cb2b6f2d1 Timestamp: 2024-11-11 13:03:19Z","error_codes":[90002],"timestamp":"2024-11-11 13:03:19Z","trace_id":"b2baf33d-c594-42ba-9571-1543c1f44a01","correlation_id":"f3c61848-0d0e-4ba3-9628-367cb2b6f2d1","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:03:19,660 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764B680D0> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:03:21,702 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764927250> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:03:24,361 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C5AA50> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:03:27,749 CRITICAL:Max retries reached. Failed to send data
+2024-11-11 16:03:41,978 ERROR:Error sending data to SharePoint
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 79, in __init__
+    openid_config = tenant_discovery(
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 216, in tenant_discovery
+    raise ValueError("OIDC Discovery failed on {}. HTTP status: {}, Error: {}".format(
+ValueError: OIDC Discovery failed on https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configuration. HTTP status: 400, Error: {"error":"invalid_tenant","error_description":"AADSTS90002: Tenant 'your_tenant_id' not found. Check to make sure you have the correct tenant ID and are signing into the correct cloud. Check with your subscription administrator, this may happen if there are no active subscriptions for the tenant. Trace ID: 137b21ad-2446-4be7-9473-48848caf1400 Correlation ID: 366e60bc-1595-49d5-951b-04e56ae0ae70 Timestamp: 2024-11-11 13:03:41Z","error_codes":[90002],"timestamp":"2024-11-11 13:03:41Z","trace_id":"137b21ad-2446-4be7-9473-48848caf1400","correlation_id":"366e60bc-1595-49d5-951b-04e56ae0ae70","error_uri":"https://login.microsoftonline.com/error?code=90002"}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\agent.py", line 281, in send_data_to_sharepoint
+    app = ConfidentialClientApplication(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\application.py", line 608, in __init__
+    self.authority = Authority(
+                     ^^^^^^^^^^
+  File "C:\Users\sophia.njoroge\EGF\Server-Monitor\venv\Lib\site-packages\msal\authority.py", line 95, in __init__
+    raise ValueError(error_message)
+ValueError: Unable to get authority configuration for https://login.microsoftonline.com/your_tenant_id. Authority would typically be in a format of https://login.microsoftonline.com/your_tenant or https://tenant_name.ciamlogin.com or https://tenant_name.b2clogin.com/tenant.onmicrosoft.com/policy.  Also please double check your tenant name or GUID is correct.
+2024-11-11 16:03:42,388 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764C5AF50> [An established connection was aborted by the software in your host machine]. Retry 1/3 in 1.50 seconds
+2024-11-11 16:03:44,414 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764925250> [An established connection was aborted by the software in your host machine]. Retry 2/3 in 2.25 seconds
+2024-11-11 16:03:47,070 ERROR:Error sending data to server: Cannot connect to host your-server-url.com:443 ssl:<ssl.SSLContext object at 0x0000018764937850> [An established connection was aborted by the software in your host machine]. Retry 3/3 in 3.38 seconds
+2024-11-11 16:03:50,449 CRITICAL:Max retries reached. Failed to send data
