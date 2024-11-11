@@ -1,0 +1,50 @@
+[2024-11-11 12:44:12] Metrics Update: name 'go' is not defined
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 428, in update_metrics
+    figures = generate_figures(df, selected_computer, dark_mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 148, in generate_figures
+    fig = go.Figure()
+          ^^
+NameError: name 'go' is not defined
+
+[2024-11-11 12:44:29] Metrics Update: name 'go' is not defined
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 428, in update_metrics
+    figures = generate_figures(df, selected_computer, dark_mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 148, in generate_figures
+    fig = go.Figure()
+          ^^
+NameError: name 'go' is not defined
+
+[2024-11-11 12:44:40] Metrics Update: name 'go' is not defined
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 428, in update_metrics
+    figures = generate_figures(df, selected_computer, dark_mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 148, in generate_figures
+    fig = go.Figure()
+          ^^
+NameError: name 'go' is not defined
+
+[2024-11-11 12:45:12] Metrics Update: name 'go' is not defined
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 428, in update_metrics
+    figures = generate_figures(df, selected_computer, dark_mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 148, in generate_figures
+    fig = go.Figure()
+          ^^
+NameError: name 'go' is not defined
+
+[2024-11-11 12:45:54] Metrics Update: name 'go' is not defined
+Traceback (most recent call last):
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 428, in update_metrics
+    figures = generate_figures(df, selected_computer, dark_mode)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\David.Peter\Downloads\Softwares & Drivers\Scripts\System monitoring\dashboard.py", line 148, in generate_figures
+    fig = go.Figure()
+          ^^
+NameError: name 'go' is not defined
+
