@@ -1,1 +1,9 @@
+plotly
+dash 
+dash-bootstrap-components 
 flask-caching 
+pandas
+aiohttp
+psutil
+python-dotenv
+msal
