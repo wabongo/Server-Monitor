@@ -10,6 +10,14 @@ git clone https://github.com/wabongo/Server-Monitor.git
 cd Server-Monitor
 ```
 
+### Step 2: Create a Virtual Environment
+
+Set up a virtual environment to manage project dependencies:
+
+```bash
+python -m venv venv
+```
+
 ### Step 3: Activate the Virtual Environment
 
 Activate the virtual environment to install dependencies in an isolated environment.
