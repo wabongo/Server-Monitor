@@ -1,9 +1,9 @@
 plotly
 dash 
-dash-bootstrap-components 
-flask-caching 
+dash_bootstrap_components 
+flask_caching 
 pandas
 aiohttp
 psutil
-python-dotenv
+python_dotenv
 msal
