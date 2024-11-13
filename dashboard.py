@@ -124,6 +124,7 @@ def generate_table(df, selected_computer, dark_mode=False):
       columns=[{"name": i, "id": i} for i in columns_to_keep],
       data=filtered_df[columns_to_keep].to_dict('records'),
       page_size=10,
+      style_table={'overflowX': 'auto'},
       style_cell=style_cell,
       style_header=style_header,
       style_data_conditional=[
