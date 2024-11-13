@@ -140,49 +140,58 @@ def generate_table(df, selected_computer, dark_mode=False):
   )
 
 def generate_figures(df, selected_computer, dark_mode=False):
-  template = "plotly_dark" if dark_mode else "plotly_white"
-  filtered_df = df[df['ComputerName'] == selected_computer]
-  
-  if filtered_df.empty:
-      return [create_empty_figure("No data available", template) for _ in range(5)]
-  
-  figures = []
-  for metric, title in [
-      ('CPU Usage (%)', 'CPU Usage Over Time'),
-      ('Memory Usage (%)', 'Memory Usage Over Time'),
-      ('Disk Usage (%)', 'Disk Usage Over Time'),
-      ('Network Upload (Mbps)', 'Network Upload Speed Over Time'),
-      ('Network Download (Mbps)', 'Network Download Speed Over Time')
-  ]:
-      fig = go.Figure()
-      fig.add_trace(go.Scatter(
-          x=filtered_df['Timestamp'],
-          y=filtered_df[metric],
-          mode='lines+markers',
-          name=metric,
-          hovertemplate=f"{metric}: %{{y:.1f}}<br>Time: %{{x}}<extra></extra>"
-      ))
-      
-      fig.update_layout(
-          title=title,
-          template=template,
-          hovermode='x unified',
-          showlegend=True,
-          legend=dict(
-              yanchor="top",
-              y=0.99,
-              xanchor="left",
-              x=0.01
-          )
-      )
-      figures.append(fig)
-  
-  return figures
+    template = "plotly_dark" if dark_mode else "plotly_white"  # Choose template based on dark_mode
+    filtered_df = df[df['ComputerName'] == selected_computer]
+    
+    if filtered_df.empty:
+        return [create_empty_figure("No data available", template) for _ in range(5)]
+    
+    figures = []
+    for metric, title in [
+        ('CPU Usage (%)', 'CPU Usage Over Time'),
+        ('Memory Usage (%)', 'Memory Usage Over Time'),
+        ('Disk Usage (%)', 'Disk Usage Over Time'),
+        ('Network Upload (Mbps)', 'Network Upload Speed Over Time'),
+        ('Network Download (Mbps)', 'Network Download Speed Over Time')
+    ]:
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(
+            x=filtered_df['Timestamp'],
+            y=filtered_df[metric],
+            mode='lines+markers',
+            name=metric,
+            hovertemplate=f"{metric}: %{{y:.1f}}<br>Time: %{{x}}<extra></extra>"
+        ))
+        
+        fig.update_layout(
+            title=title,
+            template=template,  # Use dynamic template here
+            hovermode='x unified',
+            showlegend=True,
+            legend=dict(
+                yanchor="top",
+                y=0.99,
+                xanchor="left",
+                x=0.01
+            )
+        )
+        figures.append(fig)
+    
+    return figures
+
+import plotly.express as px
 
 def create_empty_figure(message, template):
-  fig = px.line(title=message, template=template)
-  fig.add_annotation(text=message, xref="paper", yref="paper", showarrow=False)
-  return fig
+    # Explicitly set layout before creating the figure
+    fig = px.line(title=message, template=template)
+    fig.update_layout(
+        template=template,
+        paper_bgcolor='rgb(0,0,0)',  # Dark background
+        plot_bgcolor='rgb(0,0,0)',   # Dark background for the plot area
+        font_color='white'  # Ensure text color is white for dark mode
+    )
+    fig.add_annotation(text=message, xref="paper", yref="paper", showarrow=False)
+    return fig
 
 def generate_alerts(df, selected_computer):
   alerts = []
@@ -265,6 +274,9 @@ def create_status_indicators(latest_data):
   ])
 
 app.layout = dbc.Container([
+
+   dcc.Store(id='dark-mode-store', data=False, storage_type='local'),
+
   # Navigation Bar
   dbc.Navbar([
       dbc.Container([
@@ -296,70 +308,82 @@ app.layout = dbc.Container([
       ])
   ], color="dark", dark=True, className="mb-4"),
 
-  # Main Content
-  dbc.Row([
-      # Sidebar
-      dbc.Col([
-          dbc.Card([
-              dbc.CardBody([
-                  html.H5("Server Selection", className="mb-3"),
-                  dcc.Dropdown(
-                      id='computer-dropdown',
-                      options=[],
-                      clearable=False,
-                      className="mb-3"
-                  ),
-                  html.H6("Quick Filters", className="mt-4"),
-                  dbc.Checklist(
-                      options=[
-                          {"label": "High CPU Usage", "value": "cpu"},
-                          {"label": "High Memory Usage", "value": "memory"},
-                          {"label": "Service Issues", "value": "services"}
-                      ],
-                      id="status-filters",
-                      switch=True,
-                  ),
-              ])
-          ], className="mb-4"),
-          
-          html.Div(id="performance-indicators")
-      ], width=12, lg=3),
+# Main Content
+dbc.Row([
+    # Sidebar
+    dbc.Col([
+        dbc.Card([
+            dbc.CardBody([
+                html.H5("Server Selection", className="mb-3"),
+                dcc.Dropdown(
+                    id='computer-dropdown',
+                    options=[],
+                    clearable=False,
+                    className="mb-3"
+                ),
+                html.H6("Quick Filters", className="mt-4"),
+                dbc.Checklist(
+                    options=[
+                        {"label": "High CPU Usage", "value": "cpu"},
+                        {"label": "High Memory Usage", "value": "memory"},
+                        {"label": "Service Issues", "value": "services"}
+                    ],
+                    id="status-filters",
+                    switch=True,
+                ),
+            ])
+        ], className="mb-4"),
+        
+        html.Div(id="performance-indicators")
+    ], width=12, lg=3),
 
-      # Main Dashboard Area
-      dbc.Col([
-          # Alert Section
-          html.Div(id="alerts", className="mb-4"),
-          
-          # Overview Cards
-          html.Div(id="summary-cards", className="mb-4"),
-          
-          # Graphs Section
-          dbc.Tabs([
-              dbc.Tab([
-                  dbc.Row([
-                      dbc.Col(dcc.Graph(id='cpu-graph'), width=12, lg=6),
-                      dbc.Col(dcc.Graph(id='memory-graph'), width=12, lg=6),
-                  ]),
-                  dbc.Row([
-                      dbc.Col(dcc.Graph(id='disk-graph'), width=12),
-                  ])
-              ], label="System Metrics"),
-              
-              dbc.Tab([
-                  dbc.Row([
-                      dbc.Col(dcc.Graph(id='upload-graph'), width=12, lg=6),
-                      dbc.Col(dcc.Graph(id='download-graph'), width=12, lg=6),
-                  ])
-              ], label="Network Metrics"),
-              
-              dbc.Tab([
-                  html.Div(id="data-table-container")
-              ], label="Detailed Data"),
-          ]),
-      ], width=12, lg=9),
-  ]),
+    # Main Dashboard Area
+    dbc.Col([
+        # Alert Section
+        dcc.Loading(
+            id="loading-alerts",
+            type="circle",
+            children=html.Div(id="alerts", className="mb-4")
+        ),
+        
+        # Overview Cards
+        dcc.Loading(
+            id="loading-summary-cards",
+            type="circle",
+            children=html.Div(id="summary-cards", className="mb-4")
+        ),
+        
+        # Graphs Section
+        dbc.Tabs([
+            dbc.Tab([
+                dbc.Row([
+                    dbc.Col(dcc.Graph(id='cpu-graph'), width=12, lg=6),
+                    dbc.Col(dcc.Graph(id='memory-graph'), width=12, lg=6),
+                ]),
+                dbc.Row([
+                    dbc.Col(dcc.Graph(id='disk-graph'), width=12),
+                ])
+            ], label="System Metrics"),
+            
+            dbc.Tab([
+                dbc.Row([
+                    dbc.Col(dcc.Graph(id='upload-graph'), width=12, lg=6),
+                    dbc.Col(dcc.Graph(id='download-graph'), width=12, lg=6),
+                ])
+            ], label="Network Metrics"),
+            
+            dbc.Tab([
+                dcc.Loading(
+                    id="loading-table",
+                    type="circle",  # Choose the loading spinner type
+                    children=html.Div(id="data-table-container")
+                )
+            ], label="Detailed Data"),
+        ]),
+    ], width=12, lg=9),
+]),
 
-  dcc.Store(id='dark-mode-store', data=False),
+#   dcc.Store(id='dark-mode-store', data=False),
   dcc.Interval(id='interval-component', interval=REFRESH_INTERVAL * 1000, n_intervals=0),
   dcc.Download(id="download-dataframe-csv"),
   dcc.Download(id="download-dataframe-excel"),
@@ -411,24 +435,28 @@ def update_dropdown(n):
   return options, value
 
 @app.callback(
-  [Output('main-container', 'style'),
-   Output('dark-mode-store', 'data')],
-  Input('dark-mode-toggle', 'n_clicks'),
-  State('dark-mode-store', 'data')
+    [Output('main-container', 'style'),
+     Output('dark-mode-store', 'data')],
+    [Input('dark-mode-toggle', 'n_clicks')],
+    [State('dark-mode-store', 'data')]
 )
 def toggle_dark_mode(n_clicks, dark_mode):
-  if n_clicks is None:
-      return {}, False
-  
-  dark_mode = not dark_mode if dark_mode is not None else True
-  style = {
-      'backgroundColor': '#121212' if dark_mode else 'white',
-      'color': 'white' if dark_mode else 'black',
-      'minHeight': '100vh',
-      'transition': 'all 0.3s ease-in-out'
-  }
-  
-  return style, dark_mode
+    # Check if page is loading for the first time
+    if n_clicks is None:
+        # Use stored dark_mode value directly on initial load
+        dark_mode = dark_mode if dark_mode is not None else False
+    else:
+        # Toggle dark_mode when button is clicked
+        dark_mode = not dark_mode
+
+    # Set styles based on current dark_mode value
+    style = {
+        'backgroundColor': '#121212' if dark_mode else 'white',
+        'color': 'white' if dark_mode else 'black',
+        'minHeight': '100vh',
+        'transition': 'background-color 0.3s ease, color 0.3s ease'
+    }
+    return style, dark_mode
 
 @app.callback(
   [Output('cpu-graph', 'figure'),
@@ -441,15 +469,17 @@ def toggle_dark_mode(n_clicks, dark_mode):
    Output('data-table-container', 'children')],
   [Input('interval-component', 'n_intervals'),
    Input('computer-dropdown', 'value'),
-   Input('dark-mode-store', 'data')]
+   Input('dark-mode-store', 'data')]  # Pass dark mode value here
 )
 def update_metrics(n_intervals, selected_computer, dark_mode):
   try:
+      dark_mode = dark_mode if dark_mode is not None else False  # Default to False if None
       df = load_data()
       if df.empty or not selected_computer:
           raise ValueError("No data available")
       
-      figures = generate_figures(df, selected_computer, dark_mode)
+      # Generate the figures with the selected theme
+      figures = generate_figures(df, selected_computer, dark_mode)  # Use dark_mode
       overview = generate_overview(df, selected_computer, dark_mode)
       alerts = generate_alerts(df, selected_computer)
       table = generate_table(df, selected_computer, dark_mode)
